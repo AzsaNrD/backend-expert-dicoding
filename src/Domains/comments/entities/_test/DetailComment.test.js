@@ -21,6 +21,7 @@ describe('a DetailComment entities', () => {
       username: 'username',
       date: '2023-10-10T11:43:07.806Z',
       content: 12345,
+      likeCount: 0,
       replies: [],
       is_deleted: 'false',
     };
@@ -36,6 +37,7 @@ describe('a DetailComment entities', () => {
       username: 'username',
       date: '2023-10-10T11:43:07.806Z',
       content: 'comment-content',
+      likeCount: 0,
       replies: [],
       is_deleted: false,
     };
@@ -49,6 +51,7 @@ describe('a DetailComment entities', () => {
     expect(detailComment.date).toEqual(payload.date);
     expect(detailComment.replies).toEqual(payload.replies);
     expect(detailComment.content).toEqual(payload.content);
+    expect(detailComment.likeCount).toEqual(payload.likeCount);
   });
 
   it('should content be **komentar telah dihapus** if is_deleted is true', () => {
@@ -59,6 +62,7 @@ describe('a DetailComment entities', () => {
       date: '2023-10-16T00:16:22.153Z',
       content: 'comment-content',
       replies: [],
+      likeCount: 0,
       is_deleted: true,
     };
 

@@ -52,7 +52,7 @@ class CommentRepositoryPostgres extends CommentRepository {
 
     const { rows } = await this._pool.query(query);
 
-    return rows.map((row) => new DetailComment({ ...row, replies: [] }));
+    return rows.map((row) => new DetailComment({ ...row, replies: [], likeCount: 0 }));
   }
 
   async verifyCommentAccess(commentId, userId) {
