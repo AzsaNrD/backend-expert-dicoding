@@ -3,6 +3,8 @@ const AddLikeUseCase = require('../../../../Applications/use_case/AddLikeUseCase
 class LikeHandler {
   constructor(container) {
     this._container = container;
+
+    this.putLikeHandler = this.putLikeHandler.bind(this);
   }
 
   async putLikeHandler(request) {
