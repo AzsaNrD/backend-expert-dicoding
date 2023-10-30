@@ -94,6 +94,31 @@ const ServerTestHelper = {
       accessToken,
     };
   },
+
+  // async addLike(server) {
+  //   const { commentId, threadId, accessToken } = await ServerTestHelper.addComment(server);
+
+  //   const requestPayload = {
+  //     commentId,
+  //     threadId,
+  //   };
+
+  //   const response = await server.inject({
+  //     method: 'POST',
+  //     url: `/threads/${threadId}/comments/${commentId}/likes`,
+  //     payload: requestPayload,
+  //     headers: {
+  //       Authorization: `Bearer ${accessToken}`,
+  //     },
+  //   });
+
+  //   return {
+  //     likeId: JSON.parse(response.payload).data.addedLike.id,
+  //     commentId,
+  //     threadId,
+  //     accessToken,
+  //   };
+  // },
 };
 
 module.exports = ServerTestHelper;
