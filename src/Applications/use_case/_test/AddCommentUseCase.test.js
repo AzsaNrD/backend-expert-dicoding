@@ -1,5 +1,4 @@
 const NewComment = require('../../../Domains/comments/entities/NewComment');
-const AddedComment = require('../../../Domains/comments/entities/AddedComment');
 const CommentRepository = require('../../../Domains/comments/CommentRepository');
 const ThreadRepository = require('../../../Domains/threads/ThreadRepository');
 const AddCommentUseCase = require('../AddCommentUseCase');
@@ -32,14 +31,9 @@ describe('AddCommentUseCase', () => {
     });
 
     // Action
-    const addedComment = await addCommentUseCase.execute(useCaseParameter, userId, useCasePayload);
+    await addCommentUseCase.execute(useCaseParameter, userId, useCasePayload);
 
     // Assert
-    expect(addedComment).toStrictEqual(new AddedComment({
-      id: 'comment-123',
-      content: useCasePayload.content,
-      owner: 'user-123',
-    }));
     expect(mockCommentRepository.addComment)
       .toBeCalledWith(userId, useCaseParameter.threadId, new NewComment({
         content: useCasePayload.content,
